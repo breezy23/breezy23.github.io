@@ -1,0 +1,12 @@
+.cursor{
+	content: "";
+  	width: 1ex;
+  	height: 2px;
+  	margin-left: 2px;
+  	color:  #00ff00;
+  	background-color: #00ff00;
+}
+
+.loading-text{
+
+}
