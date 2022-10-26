@@ -1,3 +1,7 @@
+html, body{
+	margin: 0; height: 100%; 
+	overflow: hidden
+}
 .container{
 	flex-direction: column;
 	display: flex;
@@ -21,9 +25,11 @@
 .splash{
 	text-align:center;
 	align-items: center;
+	height: 100vp;
 }
 
 .splashContainer{
+	position: relative;
 	text-align: center;
 	margin: auto;
 	width: 538px;
