@@ -17,3 +17,15 @@
 	flex-direction: row;
 	display: inline-block;
 }
+
+.splash{
+	text-align:center;
+	align-items: center;
+}
+
+.splashContainer{
+	text-align: center;
+	margin: auto;
+	width: 538px;
+	white-space: pre;
+}

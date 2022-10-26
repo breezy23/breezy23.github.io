@@ -18,10 +18,42 @@ let cursor = true;
 const speed = 750;
 let script = true;
 
+const bzStr = [
+"88                             ,ad8888ba,     ad88888ba",
+"88                            d8\"\'    \'\"8b   d8\"     \"8b",
+"88                           d8\'        \'8b  Y8,",
+"8b,dPPYba,   d888888888888b  88          88  \'Y8aaaaa,",
+"88P\'    \"8a          d888P   88          88    \'\"\"\"\"\"8b,",
+"88       d8      d888P       Y8,        ,8P          \'8b",
+"88b,   ,a8\"   d888P           Y8a.    .a8P   Y8a     a8P",
+"8P\'YbbdP\"\'   d888888888888b    \'\"Y8888Y\"\'     \"Y88888P\" ",
+];
+
 bootLines()
 
 function bzOS(){
+	// TODO: Put text in new div
+	const splash = document.createElement("div");
+	const splashContainer = document.createElement("div");
+	const continueText= document.createElement("div");
+	const body = document.getElementById("body");
 	document.getElementById("textContainer").remove();
+
+	splashContainer.classList.add("splashContainer");
+
+	splash.classList.add("splash");
+	for(let i = 0; i < 8; i++){
+		let p = document.createTextNode("p");
+		let br = document.createElement("br");
+		p.textContent = bzStr[i];
+
+		splashContainer.appendChild(p);
+		splashContainer.appendChild(br);
+	}
+
+	splashContainer.style.textAlign = "left";
+	splash.appendChild(splashContainer);
+	body.appendChild(splash);
 }
 
 async function bootLines(){
@@ -106,6 +138,7 @@ async function bootLines(){
 				break;
 		}
 	}
+	script = false;
 	bzOS()
 }
 
