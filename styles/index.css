@@ -1,0 +1,37 @@
+html, body{
+	margin: 0; height: 100%; 
+	overflow: hidden
+}
+.container{
+	flex-direction: column;
+	display: flex;
+}
+
+.cursor{
+	content: "";
+  	width: 1ex;
+  	height: 3px;
+  	margin-left: 2px;
+  	color:  #00ff00;
+  	background-color: #00ff00;
+  	display:  inline-block;
+}
+
+.loading-text{
+	flex-direction: row;
+	display: inline-block;
+}
+
+.splash{
+	text-align:center;
+	align-items: center;
+	height: 100vp;
+}
+
+.splashContainer{
+	position: relative;
+	text-align: center;
+	margin: auto;
+	width: 538px;
+	white-space: pre;
+}
