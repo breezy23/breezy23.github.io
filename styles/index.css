@@ -1,12 +1,19 @@
+.container{
+	flex-direction: column;
+	display: flex;
+}
+
 .cursor{
 	content: "";
   	width: 1ex;
-  	height: 2px;
+  	height: 3px;
   	margin-left: 2px;
   	color:  #00ff00;
   	background-color: #00ff00;
+  	display:  inline-block;
 }
 
 .loading-text{
-
+	flex-direction: row;
+	display: inline-block;
 }
