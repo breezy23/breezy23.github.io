@@ -66,8 +66,7 @@ async function bzOS(){
 		height -= 24;
 		splashContainer.style.top = height+"px";
 
-		await sleep(250);
-		cont = true;
+		await sleep(125);
 	}
 
 	await sleep(2000);
@@ -79,6 +78,8 @@ async function bzOS(){
 
 	splashContainer.appendChild(br);
 	splashContainer.appendChild(p);
+
+	cont = true;
 }
 
 async function bootLines(){
@@ -113,53 +114,53 @@ async function bootLines(){
 		switch(i){
 			case 0:
 				// 'Disk check: OK.'
-				await sleep(500);
+				await sleep(250);
 				break;
 			case 1:
 				// 'Memory check: OK.'
-				await sleep(500);
+				await sleep(250);
 				break;
 			case 2:
 				// 'Hardware check: OK.'
-				await sleep(500);
+				await sleep(250);
 				break;
 			case 3:
 				// 'Checking drivers...'
-				await sleep(500);
+				await sleep(250);
 				break;
 			case 4:
 				// 'Driver version: V023'
 				break;
 			case 5:
 				// 'Driver name: MELON'
-				await sleep(1000);
+				await sleep(500);
 				break;
 			case 6:
 				// 'Found!'
-				await sleep(500);
+				await sleep(250);
 				break;
 			case 7:
 				// 'Driver version: V004'
 				break;
 			case 8:
 				// 'Driver name: FiNN'
-				await sleep(1000);
+				await sleep(500);
 				break;
 			case 9:
 				// 'Found!'
-				await sleep(500);
+				await sleep(250);
 				break;
 			case 10:
 				// 'All drivers found!'
-				await sleep(500);
+				await sleep(250);
 				break;
 			case 11:
 				// 'Network check: OK.'
-				await sleep(250);
+				await sleep(125);
 				break;
 			case 12:
 				// 'Running bzOS...'
-				await sleep(4000);
+				await sleep(3000);
 				break;
 		}
 	}
