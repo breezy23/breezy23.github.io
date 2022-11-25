@@ -76,3 +76,16 @@ body, html {
 	text-align: right;
 	grid-column-start: 2;
 }
+
+.row {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	display: inline-grid;
+	border-color: #00FF00;
+}
+
+.selected {
+	color: #000000;
+	border-color: #000000;
+	background-color: #00FF00;
+}
