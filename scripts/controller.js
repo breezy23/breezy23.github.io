@@ -2,22 +2,50 @@ let mode = "dir"
 let displayed = "README.txt";
 let select = document.getElementsByClassName("selected");
 
-document.getElementById("window").innerText = "";
+win.innerText = "";
 
 pager("readme");
+
+// TODO: Fix this eventually
+function scrollSomething() {
+	const displayDistance = 100;
+	let scroller;
+
+	if(displayed) {
+		scroller = win;
+	}else{
+		scroller = document.getElementById("frame");
+	}
+}
 
 // There ~may~ be a better way to this
 // But I don't know so it will be done like this :3
 function updateDisplay() {
-	const window = document.getElementById("window");
-	
+	// Dumb ass pdf window had me stuck for hours 3:
+	if(displayed == "Resume") {
+		win.style.height = "100%";
+	}else{
+		win.style.height = "auto";
+	}
+
 	switch(displayed) {
 		case "README.txt":
-			readme("readme");
+			pager("readme");
 			break;
 		case "About":
 			pager("about");
 			break;
+		case "Resume":
+			display("resume")
+			break;
+		case "GitHub":
+			redirect("github");
+			break;
+		case "LinkedIn":
+			redirect("linkedin");
+			break;
+		case "Contact":
+			pager("contact");
 		default:
 			break;
 	}
@@ -28,9 +56,7 @@ function selectRow() {
 	const pathString = path.innerText;
 
 	// TODO: Find a better way to do this
-	displayed = select.innerText.substring(0, select.innerText.indexOf("-"));
-
-	console.log(displayed);
+	displayed = select.innerText.substring(0, select.innerText.indexOf("-")).trim();
 
 	path.innerText = pathString.substring(0, pathString.indexOf("/")+1) + displayed;
 
@@ -80,6 +106,28 @@ function swapMode() {
 	}
 }
 
+function clickSelect(row) {
+	const rows = document.getElementsByClassName("row");
+
+	// Can't find an easier to find the element index dumb stupid sad 3:
+	let find;
+	for(i = 0; i < rows.length; i++) {
+		if(rows[i].classList.contains("selected")) {
+			find = i
+		}
+	}
+
+	rows[find].classList.remove("selected");
+	row.classList.add("selected");
+
+	select = row;
+
+	// TODO: Find a better way to do this
+	displayed = select.innerText.substring(0, select.innerText.indexOf("-")).trim();
+
+	updateDisplay();
+}
+
 function parseInput(key) {
 	switch(key){
 		case 40:
@@ -87,7 +135,8 @@ function parseInput(key) {
 			if(mode == "dir") {
 				moveSelect("down");
 			}else{
-				// TODO: Handle other input
+				console.log("scroll");
+				scrollSomething();
 			}
 			
 			break;
@@ -96,7 +145,8 @@ function parseInput(key) {
 			if(mode == "dir") {
 				moveSelect("up");
 			}else{
-				// TODO: Handle other input
+				console.log("scroll");
+				scrollSomething();
 			}
 			
 			break;
