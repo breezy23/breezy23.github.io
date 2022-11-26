@@ -1,10 +1,35 @@
-// 0=up 1=down
+let mode = "dir"
+let displayed = "README.txt";
+let select = document.getElementsByClassName("selected");
+
+readme();
+
+// There ~may~ be a better way to this
+// But I don't know so it will be done like this :3
+function updateDisplay() {
+	const window = document.getElementById("window");
+	
+	switch(displayed) {
+		case "README.txt":
+	}
+}
+
+function selectRow() {
+	const path = document.getElementById("path");
+	const pathString = path.innerText;
+
+	// TODO: Find a better way to do this
+	displayed = select.innerText.substring(0, select.innerText.indexOf("-"));
+
+	console.log(displayed);
+
+	path.innerText = pathString.substring(0, pathString.indexOf("/")+1) + displayed;
+
+	updateDisplay();
+}
+
 function moveSelect(direction) {
 	const rows = document.getElementsByClassName("row");
-	const select = document.getElementsByClassName("selected");
-
-	console.log(rows);
-	console.log(select);
 
 	// Can't find an easier to find the element index dumb stupid sad 3:
 	let find;
@@ -14,33 +39,59 @@ function moveSelect(direction) {
 		}
 	}
 
-	if(direction == 0) {
+	if(direction == "up") {
 		if(find > 0) {
 			rows[find].classList.remove("selected");
 			find--;
 
 			rows[find].classList.add("selected");
+			select = rows[find];
 		}
-	}else if(direction == 1) {
+	}else if(direction == "down") {
 		if(find < rows.length - 1) {
 			rows[find].classList.remove("selected");
 			find++;
 
 			rows[find].classList.add("selected");
+			select = rows[find];
 		}
 	}
 
+}
+
+function swapMode() {
+	const path = document.getElementById("path");
+
+	if(mode == "dir") {
+		mode = "dis";
+		path.classList.add("selected")
+	}else{
+		mode = "dir";
+		path.classList.remove("selected")
+	}
 }
 
 function parseInput(key) {
 	switch(key){
 		case 40:
 		case 74:
-			moveSelect(1);
+			moveSelect("down");
 			break;
 		case 38:
 		case 75:
-			moveSelect(0);
+			moveSelect("up");
+			break;
+		case 39:
+		case 76:
+			if(mode != "dis") { swapMode(); }
+			break;
+		case 37: 
+		case 72:
+			if(mode != "dir") { swapMode(); }
+			break;
+		case 13:
+			selectRow();
+			break;
 		default:
 			break;
 	}
@@ -51,6 +102,5 @@ document.onkeydown = function(evt) {
     evt = evt || window.event;
     const charCode = evt.keyCode || evt.which;
     
-    console.log(charCode);
     parseInput(charCode);
 };
