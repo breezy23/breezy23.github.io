@@ -67,6 +67,7 @@ body, html {
 
 .path {
 	grid-column-start: 1;
+	padding-left: 2px;
 }
 
 .time {
