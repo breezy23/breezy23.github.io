@@ -2,7 +2,9 @@ let mode = "dir"
 let displayed = "README.txt";
 let select = document.getElementsByClassName("selected");
 
-readme();
+document.getElementById("window").innerText = "";
+
+pager("readme");
 
 // There ~may~ be a better way to this
 // But I don't know so it will be done like this :3
@@ -11,6 +13,13 @@ function updateDisplay() {
 	
 	switch(displayed) {
 		case "README.txt":
+			readme("readme");
+			break;
+		case "About":
+			pager("about");
+			break;
+		default:
+			break;
 	}
 }
 
@@ -75,11 +84,21 @@ function parseInput(key) {
 	switch(key){
 		case 40:
 		case 74:
-			moveSelect("down");
+			if(mode == "dir") {
+				moveSelect("down");
+			}else{
+				// TODO: Handle other input
+			}
+			
 			break;
 		case 38:
 		case 75:
-			moveSelect("up");
+			if(mode == "dir") {
+				moveSelect("up");
+			}else{
+				// TODO: Handle other input
+			}
+			
 			break;
 		case 39:
 		case 76:
