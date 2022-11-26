@@ -1,21 +1,30 @@
 let mode = "dir"
 let displayed = "README.txt";
-let select = document.getElementsByClassName("selected");
+let select = document.getElementsByClassName("selected").item(0);
+let direct = document.getElementById("directory").cloneNode(true);	// Hope this worrks
+let projs = createProjects().cloneNode(true);	// Our father, who art in Heaven, hallowed by Thy name
 
 win.innerText = "";
 
 pager("readme");
 
-// TODO: Fix this eventually
-function scrollSomething() {
-	const displayDistance = 100;
-	let scroller;
+console.log(direct);
+console.log(projs);
 
-	if(displayed) {
-		scroller = win;
-	}else{
-		scroller = document.getElementById("frame");
-	}
+// Look man, for these next two methods, I do not know why I need to reclone what
+// was originally const, but it works like this! :^)
+function rebuildDirectory() {
+	projs = createProjects().cloneNode(true);
+
+	document.getElementById("directory").innerHTML = "";
+	document.getElementById("directory").replaceWith(direct);
+}
+
+function buildProjects() {
+	direct = document.getElementById("directory").cloneNode(true);
+
+	document.getElementById("directory").innerHTML = "";
+	document.getElementById("directory").replaceWith(projs);
 }
 
 // There ~may~ be a better way to this
@@ -27,7 +36,7 @@ function updateDisplay() {
 	}else{
 		win.style.height = "auto";
 	}
-
+	
 	switch(displayed) {
 		case "README.txt":
 			pager("readme");
@@ -46,6 +55,18 @@ function updateDisplay() {
 			break;
 		case "Contact":
 			pager("contact");
+			break;
+		case "Projects":
+			buildProjects();
+			select = document.getElementById("0");
+			break;
+		case "breezy23.github.io":
+			pager("website")
+			break;
+		case "..":
+			rebuildDirectory();
+			select = document.getElementsByClassName("row").item(0);
+			break;
 		default:
 			break;
 	}
@@ -58,8 +79,18 @@ function selectRow() {
 	// TODO: Find a better way to do this
 	displayed = select.innerText.substring(0, select.innerText.indexOf("-")).trim();
 
-	path.innerText = pathString.substring(0, pathString.indexOf("/")+1) + displayed;
+	// Clean up the path and make it more "correct"
+	if(projects.includes(displayed)) {
+		path.innerText = pathString.substring(0, pathString.indexOf("/")+1) + "Projects/" + displayed;
+	}else{
+		if(displayed == "..") {
+			path.innerText = "~/"
+		}else{
+			path.innerText = pathString.substring(0, pathString.indexOf("/")+1) + displayed;
+		}
+	}
 
+	
 	updateDisplay();
 }
 

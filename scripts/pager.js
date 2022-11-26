@@ -18,6 +18,9 @@ const contact = [
 	"Email: brz0323@gmail.com | brz23@iastate.edu",
 	"Bro I gotta have more contact somewhere around here"
 ];
+const website = [
+	"You're lookin\' at it yo! :D"
+];
 
 function pager(message) {
 	let msg;
@@ -34,6 +37,9 @@ function pager(message) {
 			break;
 		case "contact":
 			msg = contact;
+			break;
+		case "website":
+			msg = website;
 			break;
 		default:
 			break;
