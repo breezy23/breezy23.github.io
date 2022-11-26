@@ -7,7 +7,7 @@ function createProjects() {
 	div.classList.add("dir");
 	div.id = "directory"
 
-	for(j = 0; j < 26; j++) {
+	for(j = 0; j < 25; j++) {
 		const row = document.createElement("div");
 		const item = document.createElement("span");
 		const ident = document.createElement("span");
