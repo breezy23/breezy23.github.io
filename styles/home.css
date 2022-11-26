@@ -44,6 +44,7 @@ iframe {
 	align-self: start;
 	padding-left: 2px;
 	padding-right: 2px;
+	overflow: hidden;
 }
 
 .ident {
