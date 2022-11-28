@@ -89,7 +89,6 @@ function selectRow() {
 			path.innerText = pathString.substring(0, pathString.indexOf("/")+1) + displayed;
 		}
 	}
-
 	
 	updateDisplay();
 }

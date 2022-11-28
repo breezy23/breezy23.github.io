@@ -16,6 +16,8 @@ function createProjects() {
 		item.classList.add("item");
 		ident.classList.add("ident");
 
+		row.setAttribute("onclick", "clickSelect(this)");
+
 		row.id = j;
 		if(j == 0){
 			item.textContent = "..";
