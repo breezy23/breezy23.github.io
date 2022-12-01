@@ -8,13 +8,8 @@ win.innerText = "";
 
 pager("readme");
 
-console.log(direct);
-console.log(projs);
-
 // Lock window height at display height so no funky shit happens
-console.log(document.getElementById("directory").height);
 document.getElementById("display").style.maxHeight = (document.getElementById("directory").clientHeight)+"px";
-console.log(document.getElementById("display").style.maxHeight);
 
 // Look man, for these next two methods, I do not know why I need to reclone what
 // was originally const, but it works like this! :^)
@@ -39,7 +34,9 @@ function updateDisplay() {
 	if(displayed == "Resume") {
 		win.style.height = "100%";
 	}else{
-		win.style.height = "auto";
+		if(displayed != "Projects"){
+			win.style.height = "auto";
+		}
 	}
 	
 	switch(displayed) {
