@@ -1,3 +1,7 @@
+// I'm so sorry Michael
+// You weren't supposed to see any of this
+// Please forgive me 3:
+
 let mode = "dir"
 let displayed = "README.txt";
 let select = document.getElementsByClassName("selected").item(0);
@@ -8,7 +12,7 @@ win.innerText = "";
 
 pager("readme");
 
-// Lock window height at display height so no funky shit happens
+// Lock display window height so it doesnt change when div wants to e x p a n d
 document.getElementById("display").style.maxHeight = (document.getElementById("directory").clientHeight)+"px";
 
 // Look man, for these next two methods, I do not know why I need to reclone what
@@ -30,7 +34,6 @@ function buildProjects() {
 // There ~may~ be a better way to this
 // But I don't know so it will be done like this :3
 function updateDisplay() {
-	// Dumb ass pdf window had me stuck for hours 3:
 	if(displayed == "Resume") {
 		win.style.height = "100%";
 	}else{
@@ -63,7 +66,10 @@ function updateDisplay() {
 			select = document.getElementById("0");
 			break;
 		case "breezy23.github.io":
-			pager("website")
+			pager("website");
+			break;
+		case "ADash":
+			pager("ADash");
 			break;
 		case "..":
 			rebuildDirectory();
@@ -141,7 +147,6 @@ function swapMode() {
 function clickSelect(row) {
 	const rows = document.getElementsByClassName("row");
 
-	// Can't find an easier to find the element index dumb stupid sad 3:
 	let find;
 	for(i = 0; i < rows.length; i++) {
 		if(rows[i].classList.contains("selected")) {
@@ -154,7 +159,6 @@ function clickSelect(row) {
 
 	select = row;
 
-	// TODO: Find a better way to do this
 	displayed = select.innerText.substring(0, select.innerText.indexOf("-")).trim();
 
 	updateDisplay();

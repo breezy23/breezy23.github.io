@@ -1,5 +1,6 @@
 const projects = [
-	"breezy23.github.io"
+	"breezy23.github.io",
+	"ADash"
 ];
 
 function createProjects() {
