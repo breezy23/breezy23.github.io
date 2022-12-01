@@ -21,6 +21,12 @@ const contact = [
 const website = [
 	"You're lookin\' at it yo! :D"
 ];
+const adash = [
+	"A simple dashboard for a bunch of nerdy fratboys to use",
+	"Displays time, weather, news headlines, and custom made messages in the form of powerpoint slide images",
+	"Deployed (and relies) on a raspberry pi on the network",
+	"https://github.com/breezy23/ADash"
+];
 
 function pager(message) {
 	let msg;
@@ -41,6 +47,9 @@ function pager(message) {
 		case "website":
 			msg = website;
 			break;
+		case "ADash":
+			msg = adash;
+			break; 
 		default:
 			break;
 	}

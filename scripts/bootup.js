@@ -37,6 +37,7 @@ function toHome(){
 		document.location.href = "pages/home.html";
 	}
 }
+
 async function bzOS(){
 	// TODO: Put text in new div
 	const splash = document.createElement("div");
