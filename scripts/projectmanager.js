@@ -7,7 +7,7 @@ function createProjects() {
 	div.classList.add("dir");
 	div.id = "directory"
 
-	for(j = 0; j < 25; j++) {
+	for(j = 0; j < 22; j++) {
 		const row = document.createElement("div");
 		const item = document.createElement("span");
 		const ident = document.createElement("span");
@@ -37,8 +37,13 @@ function createProjects() {
 				row.append(ident);
 				div.append(row);
 			}else{
+				row.classList.remove("row");
+				row.classList.add("filler");
+
+
 				ident.textContent = "        ";
-				div.append(ident);
+				row.append(ident);
+				div.append(row)
 			}
 		}
 	}
