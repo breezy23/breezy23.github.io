@@ -39,6 +39,7 @@ function createProjects() {
 				div.append(row);
 			}else{
 				row.classList.remove("row");
+				row.removeAttribute("onclick");
 				row.classList.add("filler");
 
 
