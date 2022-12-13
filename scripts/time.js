@@ -20,6 +20,10 @@ function updateTime() {
 		postfix = "pm";
 	}
 
+	if (hour == 0) {
+		hour = 12;
+	}
+	
 	if (minute.length < 2) {
 		minute = "0"+ minute;
 	}
