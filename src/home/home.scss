@@ -1,0 +1,6 @@
+@use '../_mixins';
+@use '../variables.scss' as variables;
+
+.home {
+  border: solid variables.$green 2px;
+}
