@@ -8,6 +8,7 @@
 .selector {
   display: grid;
   grid-template-columns: auto auto;
+  white-space: pre;
 
   .selector-left {
     float: left;

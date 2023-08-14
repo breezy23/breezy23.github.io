@@ -4,12 +4,27 @@ import selectorsJSON from '../files/initialization/selectors.json';
 import Selector from './selector/selector';
 import PropTypes from 'prop-types';
 
+function getSelectors(rows) {
+    let emptyArray = [];
+
+    for (let i = 0; i < rows - selectorsJSON.length; i++) {
+        emptyArray.push({
+            "name": "",
+            "type": "EMP"
+        });
+    }
+
+    console.log(selectorsJSON.concat(emptyArray))
+    return selectorsJSON.concat(emptyArray);
+}
+
 class SelectionPanel extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            selectors: selectorsJSON
+            selectors: getSelectors(props.rows),
+            rows: props.rows
         }
     }
 

@@ -11,7 +11,7 @@ class Home extends React.Component {
                 className={'home'}
             >
                 <SelectionPanel
-                    rows={32}
+                    rows={24}
                 />
                 <ViewContainer/>
                 <Path/>
