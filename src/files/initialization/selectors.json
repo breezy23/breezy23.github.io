@@ -1,0 +1,18 @@
+[
+  {
+    "name": "test1",
+    "type": "DIR"
+  },
+  {
+    "name": "test2",
+    "type": "DIR"
+  },
+  {
+    "name": "test3",
+    "type": "ITM"
+  },
+  {
+    "name": "test4",
+    "type": "ITM"
+  }
+]

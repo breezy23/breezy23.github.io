@@ -1,0 +1,21 @@
+@use '../_mixins';
+@use '../variables.scss' as variables;
+
+.panel {
+  font-size: 1.5rem;
+}
+
+.selector {
+  display: grid;
+  grid-template-columns: auto auto;
+
+  .selector-left {
+    float: left;
+  }
+
+  .selector-right {
+    border-left: dashed variables.$green 2px;
+    float: right;
+    justify-self: end;
+  }
+}

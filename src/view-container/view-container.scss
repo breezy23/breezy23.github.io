@@ -1,0 +1,7 @@
+@use '../variables' as variables;
+
+.container {
+  border-left: solid variables.$green 2px;
+  height: 800px;
+  width: 900px;
+}

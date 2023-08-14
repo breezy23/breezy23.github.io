@@ -3,4 +3,7 @@
 
 .home {
   border: solid variables.$green 2px;
+  display: grid;
+  grid-template-columns: 20rem auto;
+  grid-template-rows: auto fit-content(2rem);
 }

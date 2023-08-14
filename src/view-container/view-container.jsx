@@ -1,11 +1,16 @@
 import * as React from 'react';
+import './view-container.scss';
 
-function ViewContainer() {
-    return (
-        <div>
-            x3
-        </div>
-    );
+class ViewContainer extends React.Component {
+    render() {
+        return (
+            <div
+                className={'container'}
+            >
+                x3
+            </div>
+        );
+    };
 }
 
 export default ViewContainer;
