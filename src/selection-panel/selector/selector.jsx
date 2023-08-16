@@ -29,7 +29,7 @@ class Selector extends React.Component {
                     {this.state.name}
                 </span>
                     <span
-                        className={'selector-right'}
+                        className={this.state.type !== 'EMP' ? 'selector-right' : 'selector-hidden'}
                     >
                     {typeMap[this.state.type]}
                 </span>
