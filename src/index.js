@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import Home from './home/home.jsx';
+import Home from './views/home/home.jsx';
+import store from './store.js';
+import {Provider} from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>
+    <Provider store={store}>
+        <React.StrictMode>
+            <Home />
+        </React.StrictMode>
+    </Provider>
 );

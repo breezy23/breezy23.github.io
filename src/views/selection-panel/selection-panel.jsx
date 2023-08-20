@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './selection-panel.scss';
-import selectorsJSON from '../files/initialization/selectors.json';
+import selectorsJSON from '../../files/initialization/selectors.json';
 import Selector from './selector/selector';
 import PropTypes from 'prop-types';
 

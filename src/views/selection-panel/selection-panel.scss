@@ -1,5 +1,5 @@
-@use '../_mixins';
-@use '../variables.scss' as variables;
+@use '../../mixins';
+@use '../../variables' as variables;
 
 .panel {
   font-size: 1.5rem;
