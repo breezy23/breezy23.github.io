@@ -3,50 +3,32 @@ import './selection-panel.scss';
 import selectorsJSON from '../../files/initialization/selectors.json';
 import Selector from './selector/selector';
 import PropTypes from 'prop-types';
+import {useState} from "react";
 
 function getSelectors(rows) {
     let emptyArray = [];
 
     for (let i = 0; i < rows - selectorsJSON.length; i++) {
         emptyArray.push({
-            "name": "",
-            "type": "EMP"
+            name: '',
+            type: 'EMP'
         });
     }
 
-    console.log(selectorsJSON.concat(emptyArray))
     return selectorsJSON.concat(emptyArray);
 }
 
-class SelectionPanel extends React.Component {
-    constructor(props) {
-        super(props);
+const SelectionPanel = (props) => {
+    const [selectors, setSelectors] = useState(getSelectors(props.rows));
 
-        this.state = {
-            selectors: getSelectors(props.rows),
-            rows: props.rows
-        }
-    }
-
-    render() {
-        return (
-            <div
-                className={'panel'}
-            >
-                {
-                    this.state.selectors.map((item) => {
-                        return (
-                            <Selector
-                                name={item.name}
-                                type={item.type}
-                            />
-                        );
-                    })
-                }
-            </div>
-        );
-    }
-}
+    return (
+        <div className={'panel'}>
+            {selectors.map((item, index) => (
+                <Selector key={index} name={item.name} type={item.type} />
+            ))}
+        </div>
+    );
+};
 
 SelectionPanel.propTypes = {
     selectors: PropTypes.array,

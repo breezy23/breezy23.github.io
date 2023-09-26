@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import '../selection-panel.scss'
+import {useState} from "react";
 
 const typeMap = {
     'DIR': '---DIR->',
@@ -8,34 +9,28 @@ const typeMap = {
     'EMP': '        '
 }
 
-class Selector extends React.Component {
-    constructor(props) {
-        super(props);
+const Selector = (props) => {
+    const [state] = useState({
+        name: props.name,
+        type: props.type
+    });
 
-        this.state = {
-            name: props.name,
-            type: props.type
-        };
-    }
-
-    render() {
-        return (
-            <div
-                className={'selector'}
-            >
+    return (
+        <div
+            className={'selector'}
+        >
                 <span
                     className={'selector-left'}
                 >
-                    {this.state.name}
+                    {state.name}
                 </span>
-                    <span
-                        className={this.state.type !== 'EMP' ? 'selector-right' : 'selector-hidden'}
-                    >
-                    {typeMap[this.state.type]}
+            <span
+                className={state.type !== 'EMP' ? 'selector-right' : 'selector-hidden'}
+            >
+                    {typeMap[state.type]}
                 </span>
-            </div>
-        );
-    };
+        </div>
+    );
 }
 
 Selector.propTypes = {
