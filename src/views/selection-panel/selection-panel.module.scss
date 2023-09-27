@@ -5,23 +5,33 @@
   font-size: 1.5rem;
 }
 
+.selected {
+  background: variables.$green;
+  color: black;
+  border-color: black !important;
+}
+
 .selector {
+  border-color: variables.$green;
+  border-left-width: 2px;
   display: grid;
   grid-template-columns: auto auto;
   white-space: pre;
 
-  .selector-left {
+
+  .selectorLeft {
     float: left;
+    text-overflow: ellipsis;
   }
 
-  .selector-right {
-    border-left: dashed variables.$green 2px;
+  .selectorRight {
+    border-left-style: dashed;
     float: right;
     justify-self: end;
   }
 
-  .selector-hidden {
-    @extend .selector-right;
+  .selectorHidden {
+    @extend .selectorRight;
     user-select: none;
 
     &:hover {

@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const selectorSlice = createSlice ({
-    name: 'selector',
+    name: 'selectors',
     initialState: {
         selected: 'readme'
     },

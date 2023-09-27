@@ -3,6 +3,6 @@ import selectorReducer from './reducers/selectorReducer';
 
 export default configureStore({
     reducer: {
-        selector: selectorReducer
+        selectors: selectorReducer
     },
 });

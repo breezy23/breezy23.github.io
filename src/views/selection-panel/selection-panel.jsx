@@ -1,9 +1,9 @@
 import * as React from 'react';
-import './selection-panel.scss';
+import styles from './selection-panel.module.scss';
 import selectorsJSON from '../../files/initialization/selectors.json';
 import Selector from './selector/selector';
 import PropTypes from 'prop-types';
-import {useState} from "react";
+import {useState} from 'react';
 
 function getSelectors(rows) {
     let emptyArray = [];
@@ -11,6 +11,7 @@ function getSelectors(rows) {
     for (let i = 0; i < rows - selectorsJSON.length; i++) {
         emptyArray.push({
             name: '',
+            id: '',
             type: 'EMP'
         });
     }
@@ -19,12 +20,17 @@ function getSelectors(rows) {
 }
 
 const SelectionPanel = (props) => {
-    const [selectors, setSelectors] = useState(getSelectors(props.rows));
+    const [selectors] = useState(getSelectors(props.rows));
 
     return (
-        <div className={'panel'}>
-            {selectors.map((item, index) => (
-                <Selector key={index} name={item.name} type={item.type} />
+        <div className={styles.panel}>
+            {selectors.map((item) => (
+                <Selector
+                    id={item.id ? item.id : ''}
+                    name={item.name}
+                    selected={false}
+                    type={item.type}
+                />
             ))}
         </div>
     );

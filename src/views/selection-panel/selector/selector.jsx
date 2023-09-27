@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import '../selection-panel.scss'
+import styles from '../selection-panel.module.scss'
 import {useState} from "react";
 
 const typeMap = {
@@ -11,34 +11,41 @@ const typeMap = {
 
 const Selector = (props) => {
     const [state] = useState({
+        id: props.id,
         name: props.name,
+        selected: props.selected,
         type: props.type
     });
 
+    const selectedSelector = state.selected ? styles.selected : '';
+
     return (
         <div
-            className={'selector'}
+            className={`${styles.selector} ${selectedSelector}`}
         >
-                <span
-                    className={'selector-left'}
-                >
-                    {state.name}
-                </span>
             <span
-                className={state.type !== 'EMP' ? 'selector-right' : 'selector-hidden'}
+                className={styles.selectorLeft}
+            >
+                {state.name}
+            </span>
+            <span
+                className={state.type !== 'EMP' ? styles.selectorRight : styles.selectorHidden}
             >
                     {typeMap[state.type]}
-                </span>
+            </span>
         </div>
     );
 }
 
 Selector.propTypes = {
+    id: PropTypes.string,
     name: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['DIR', 'ITM', 'EMP'])
+    selected: PropTypes.bool,
+    type: PropTypes.oneOf(['DIR', 'ITM', 'EMP']),
 }
 
 Selector.defaultProps = {
+    selected: false,
     type: 'EMP'
 }
 
