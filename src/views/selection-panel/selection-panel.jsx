@@ -15,8 +15,13 @@ function getSelectors(rows) {
             type: 'EMP'
         });
     }
+    let selectors = selectorsJSON.concat(emptyArray);
 
-    return selectorsJSON.concat(emptyArray);
+    for(let i = 0; i < selectors.length; i++) {
+        selectors[i].index = i;
+    }
+
+    return selectors;
 }
 
 const SelectionPanel = (props) => {
