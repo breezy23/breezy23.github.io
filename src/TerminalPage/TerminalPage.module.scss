@@ -1,22 +1,58 @@
-html {
+html, body {
   background-color: black;
   color: white;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  height: 100%;
+  line-height: 1.75rem;
+  margin: 0;
+  padding: 0;
 }
 
 .terminal_container {
   border: solid 2px #00ff00;
   display: flex;
   flex-direction: column;
+  height: 80vh;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
 }
 
 .display {
   display: flex;
+  height: 100%;
 }
 
 .path {
   border-top: solid #00ff00 2px;
+  flex: 0 0 1rem;
+}
+
+.display_pane {
+  flex: 0 0 75%
 }
 
 .filesystem {
   border-right: solid #00ff00 2px;
+  display: flex;
+  height: 100%;
+  flex: 0 0 25%;
+  justify-content: space-between;
+}
+
+.fileselector {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fileselector_title {
+  height: 100%;
+  text-overflow: ellipsis;
+}
+
+.fileselector_type {
+  border-left: dashed #00ff00 2px;
+  height: 100%;
+  text-align: right;
 }
