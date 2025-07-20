@@ -1,6 +1,6 @@
 import {FileSystemPane} from "./FileSystem.tsx";
 import {DisplayPane} from "./DisplayPane.tsx";
-import styles from "../TerminalPage.module.scss"
+import styles from "../TerminalPage.module.scss";
 export const Display = () => {
     return (
         <div className={styles.display}>
