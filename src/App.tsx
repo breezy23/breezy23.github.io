@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {TerminalPage} from "./TerminalPage/TerminalPage.tsx";
+import {TerminalPage} from "./TerminalPage/components/TerminalPage.tsx";
 import {XPPage} from "./XPPage/XPPage.tsx";
 
 function App() {
