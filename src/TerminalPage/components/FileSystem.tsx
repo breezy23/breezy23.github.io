@@ -38,7 +38,7 @@ export const FileSystemPane = () => {
             <div className={styles.fileselector_title}>
                 {files.map((file) => {
                     return (
-                        <div>
+                        <div className={styles.fileselector_text}>
                             {file.title}
                         </div>
                     );

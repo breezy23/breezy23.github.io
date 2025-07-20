@@ -2,7 +2,7 @@
 
 html, body {
   background-color: black;
-  color: white;
+  color: #00ff00;
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   height: 100%;
@@ -32,29 +32,39 @@ html, body {
 }
 
 .display_pane {
-  flex: 0 0 75%
+  flex: 0 0 75%;
+  width: 100%;
 }
 
 .filesystem {
   border-right: solid #00ff00 2px;
   display: flex;
-  height: 100%;
   flex: 0 0 25%;
+  height: 100%;
   justify-content: space-between;
-}
-
-.fileselector {
-  display: flex;
-  justify-content: space-between;
+  padding: 0 0.25rem 0 0.25rem;
 }
 
 .fileselector_title {
+  display: block;
   height: 100%;
+  overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+
+  // TODO: This naming convention is gross and confusing, maybe change this.
+  .fileselector_text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%; // or max-width if needed
+  }
 }
 
 .fileselector_type {
   border-left: dashed #00ff00 2px;
   height: 100%;
+  padding-left: .25rem;
   text-align: right;
+  width: fit-content;
 }
