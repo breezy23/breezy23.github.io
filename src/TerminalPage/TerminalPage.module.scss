@@ -28,7 +28,9 @@ html, body {
 
 .path {
   border-top: solid #00ff00 2px;
+  display: flex;
   flex: 0 0 1rem;
+  justify-content: space-between;
 }
 
 .display_pane {
@@ -78,5 +80,13 @@ html, body {
 
 .selected {
   background-color: #00ff00;
+  color: black;
+}
+
+.tick {
+  color: #00ff00;
+}
+
+.tock {
   color: black;
 }
