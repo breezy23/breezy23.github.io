@@ -1,6 +1,9 @@
 import styles from '../TerminalPage.module.scss'
+import {useState} from "react";
 
 export const FileSystemPane = () => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
     const fileTypeMap = (type: string): string => {
         const map: {[key: string]: string} = {
             "file": "=FILE======>",
@@ -37,18 +40,21 @@ export const FileSystemPane = () => {
         <div className={styles.filesystem}>
             <div className={styles.fileselector_title}>
                 {files.map((file) => {
+                    const isSelected = true;
                     return (
-                        <div className={styles.fileselector_text}>
+                        <div className={`${styles.text} ${isSelected ? styles.selected : ''}`}>
                             {file.title}
                         </div>
                     );
                 })}
             </div>
-            <div className={styles.fileselector_type}>
+            <div className={`${styles.fileselector_type}`}>
                 {files.map((file) => {
+                    const isSelected = true;
+
                     return (
-                        <div>
-                            {fileTypeMap(file.type)}
+                        <div className={`${styles.text} ${isSelected ? styles.selected : ''}`}>
+                            {fileTypeMap(file.type) }
                         </div>
                     );
                 })}

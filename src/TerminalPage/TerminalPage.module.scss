@@ -42,7 +42,6 @@ html, body {
   flex: 0 0 25%;
   height: 100%;
   justify-content: space-between;
-  padding: 0 0.25rem 0 0.25rem;
 }
 
 .fileselector_title {
@@ -52,19 +51,32 @@ html, body {
   text-overflow: ellipsis;
   width: 100%;
 
-  // TODO: This naming convention is gross and confusing, maybe change this.
-  .fileselector_text {
+  &.text {
     overflow: hidden;
-    white-space: nowrap;
+    padding-left: 0.25rem;
     text-overflow: ellipsis;
-    width: 100%; // or max-width if needed
+    white-space: nowrap;
+    width: 100%;
   }
 }
 
 .fileselector_type {
   border-left: dashed #00ff00 2px;
   height: 100%;
-  padding-left: .25rem;
   text-align: right;
   width: fit-content;
+
+  .selected {
+    border-left: dashed black 2px;
+  }
+
+  &.text {
+    padding-left: .25rem;
+    padding-right: .25rem;
+  }
+}
+
+.selected {
+  background-color: #00ff00;
+  color: black;
 }
