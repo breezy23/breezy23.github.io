@@ -1,11 +1,17 @@
 import styles from '../TerminalPage.module.scss'
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {AppContext} from "../AppContext.tsx";
 
 export const FileSystemPane = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const { setFilePath } = useContext(AppContext);
 
     const setSelection = () => {
-        console.log(selectedIndex)
+        const selectedFile = files[selectedIndex]
+
+        if (selectedFile.type === 'file') {
+            setFilePath(files[selectedIndex].path)
+        }
     }
     const changeSelection = (key: string) => {
         switch (key) {
@@ -36,24 +42,34 @@ export const FileSystemPane = () => {
     const files = [
         {
             title: "TempFile1",
+            path: '~/TempFile1',
             type: "directory"
         },
         {
             title: "TempFile2",
+            path: '~/TempFile2',
             type: "file"
         },
         {
             title: "TempFile3",
+            path: '~/TempFile3',
             type: "file"
         },
         {
             title: "TempFile4",
+            path: '~/TempFile4',
             type: "file"
         },
         {
             title: "TempFile5",
+            path: '~/TempFile5',
             type: "file"
         },
+        {
+            title: "README.txt",
+            path: '~/README.txt',
+            type: "file"
+        }
     ];
 
     useEffect(() => {
