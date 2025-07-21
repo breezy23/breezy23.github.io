@@ -3,7 +3,6 @@ import styles from '../styles/path.module.scss'
 
 export const Time = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
-    const [currentStyle, changeStyle] = useState("tick")
 
     useEffect(() => {
         const timer = setInterval(() => {
