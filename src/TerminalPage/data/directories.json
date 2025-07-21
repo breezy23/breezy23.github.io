@@ -1,0 +1,32 @@
+[
+  {
+    "path": "~/",
+    "files": [
+      {
+        "title": "Projects",
+        "path": "~/Projects/",
+        "type": "directory"
+      },
+      {
+        "title": "Resume.md",
+        "path": "~/Resume.md",
+        "type": "file"
+      },
+      {
+        "title": "README.txt",
+        "path": "~/README.txt",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "path": "~/Projects/",
+    "files": [
+      {
+        "title": "../",
+        "path": "~/",
+        "type": "directory"
+      }
+    ]
+  }
+]
