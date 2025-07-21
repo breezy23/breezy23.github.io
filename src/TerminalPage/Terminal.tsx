@@ -1,4 +1,4 @@
-import styles from './TerminalPage.module.scss'
+import styles from './styles/TerminalPage.module.scss'
 import {Display} from "./components/Display.tsx";
 import {Path} from "./components/Path.tsx";
 import {AppProvider} from "./AppContext.tsx";

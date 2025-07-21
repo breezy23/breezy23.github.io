@@ -1,4 +1,4 @@
-import styles from '../TerminalPage.module.scss';
+import styles from '../styles/display.module.scss';
 
 export const DisplayPane = () => {
     return (
