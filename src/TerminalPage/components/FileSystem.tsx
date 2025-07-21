@@ -1,10 +1,14 @@
 import styles from '../styles/filesystem.module.scss'
+import data from '../data/directories.json'
 import {useContext, useEffect, useState} from "react";
 import {AppContext} from "../AppContext.tsx";
 
 export const FileSystemPane = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const { setFilePath, setCurrentDocument } = useContext(AppContext);
+    const { currentDirectory, setCurrentDirectory, setFilePath, setCurrentDocument } = useContext(AppContext);
+
+    const selectedDirectory = data.find(dir => dir.path === currentDirectory);
+    const files = selectedDirectory?.files || [];
 
     const setSelection = () => {
         const selectedFile = files[selectedIndex]
@@ -12,6 +16,14 @@ export const FileSystemPane = () => {
         if (selectedFile.type === 'file') {
             setFilePath(files[selectedIndex].path);
             setCurrentDocument(selectedFile.title);
+        } else if (selectedFile.type == 'directory') {
+            setSelectedIndex(0);
+
+            if (selectedFile.title !== "../") {
+                setCurrentDirectory(`${currentDirectory}${selectedFile.title}/`);
+            } else {
+                setCurrentDirectory(selectedFile.path);
+            }
         }
     }
     const changeSelection = (key: string) => {
@@ -29,7 +41,7 @@ export const FileSystemPane = () => {
 
                 break;
         }
-    }
+    };
 
     const fileTypeMap = (type: string): string => {
         const map: {[key: string]: string} = {
@@ -39,39 +51,6 @@ export const FileSystemPane = () => {
 
         return map[type];
     };
-
-    const files = [
-        {
-            title: "TempFile1",
-            path: '~/TempFile1',
-            type: "directory"
-        },
-        {
-            title: "Resume.md",
-            path: '~/Resume.md',
-            type: "file"
-        },
-        {
-            title: "TempFile3",
-            path: '~/TempFile3',
-            type: "file"
-        },
-        {
-            title: "TempFile4",
-            path: '~/TempFile4',
-            type: "file"
-        },
-        {
-            title: "TempFile5",
-            path: '~/TempFile5',
-            type: "file"
-        },
-        {
-            title: "README.txt",
-            path: '~/README.txt',
-            type: "file"
-        }
-    ];
 
     useEffect(() => {
         const handleKeyPress = (event: KeyboardEvent) => {
@@ -83,7 +62,7 @@ export const FileSystemPane = () => {
         return () => {
             window.removeEventListener('keydown', handleKeyPress)
         }
-    }, [selectedIndex])
+    }, [files, selectedIndex])
 
     return (
         <div className={styles.filesystem}>
