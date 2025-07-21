@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import styles from '../TerminalPage.module.scss'
+import styles from '../styles/path.module.scss'
 
 export const Time = () => {
     const [currentTime, setCurrentTime] = useState(new Date());

@@ -1,4 +1,4 @@
-import styles from '../TerminalPage.module.scss'
+import styles from '../styles/filesystem.module.scss'
 import {useContext, useEffect, useState} from "react";
 import {AppContext} from "../AppContext.tsx";
 
