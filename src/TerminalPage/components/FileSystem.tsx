@@ -4,13 +4,14 @@ import {AppContext} from "../AppContext.tsx";
 
 export const FileSystemPane = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const { setFilePath } = useContext(AppContext);
+    const { setFilePath, setCurrentDocument } = useContext(AppContext);
 
     const setSelection = () => {
         const selectedFile = files[selectedIndex]
 
         if (selectedFile.type === 'file') {
-            setFilePath(files[selectedIndex].path)
+            setFilePath(files[selectedIndex].path);
+            setCurrentDocument(selectedFile.title);
         }
     }
     const changeSelection = (key: string) => {
@@ -46,8 +47,8 @@ export const FileSystemPane = () => {
             type: "directory"
         },
         {
-            title: "TempFile2",
-            path: '~/TempFile2',
+            title: "Resume.md",
+            path: '~/Resume.md',
             type: "file"
         },
         {
