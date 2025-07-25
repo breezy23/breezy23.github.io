@@ -13,8 +13,9 @@ export const FileSystemPane = () => {
     const setSelection = () => {
         const selectedFile = files[selectedIndex]
 
+        setFilePath(files[selectedIndex].path);
+
         if (selectedFile.type === 'file') {
-            setFilePath(files[selectedIndex].path);
             setCurrentDocument(selectedFile.title);
         } else if (selectedFile.type == 'directory') {
             setSelectedIndex(0);
