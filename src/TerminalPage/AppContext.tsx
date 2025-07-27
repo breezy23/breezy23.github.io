@@ -12,7 +12,7 @@ type AppContextType = {
 const defaultContext: AppContextType = {
     filePath: '~/README.txt',
     setFilePath: () => {},
-    currentDocument: 'README.txt',
+    currentDocument: 'README',
     setCurrentDocument: () => {},
     currentDirectory: '~/',
     setCurrentDirectory: () => {}
@@ -22,7 +22,7 @@ const defaultContext: AppContextType = {
 export const AppContext = createContext<AppContextType>(defaultContext);
 export const AppProvider = ({children}: {children: ReactNode}) => {
     const [filePath, setFilePath] = useState('~/README.txt');
-    const [currentDocument, setCurrentDocument] = useState('README.txt');
+    const [currentDocument, setCurrentDocument] = useState('README');
     const [currentDirectory, setCurrentDirectory] = useState('~/');
 
     return (

@@ -8,12 +8,35 @@
         "type": "directory"
       },
       {
-        "title": "Resume.md",
-        "path": "~/Resume.md",
+        "title": "About",
+        "path": "~/about.txt",
         "type": "file"
       },
       {
-        "title": "README.txt",
+        "title": "Resume",
+        "path": "~/Resume.pdf",
+        "type": "redirect",
+        "link": "/documents/Resume.pdf"
+      },
+      {
+        "title": "GitHub",
+        "path": "~/GitHub",
+        "type": "redirect",
+        "link": "https://github.com/breezy23"
+      },
+      {
+        "title": "LinkedIn",
+        "path": "~/LinkedIn",
+        "type": "redirect",
+        "link": "https://www.linkedin.com/in/ezbz/"
+      },
+      {
+        "title": "Contact",
+        "path": "~/Contact.md",
+        "type": "file"
+      },
+      {
+        "title": "README",
         "path": "~/README.txt",
         "type": "file"
       }
