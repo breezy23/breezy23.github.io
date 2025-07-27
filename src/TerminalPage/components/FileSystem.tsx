@@ -25,6 +25,8 @@ export const FileSystemPane = () => {
             } else {
                 setCurrentDirectory(selectedFile.path);
             }
+        } else if (selectedFile.type === 'redirect') {
+            window.open(selectedFile.link, '_blank');
         }
     }
     const changeSelection = (key: string) => {
@@ -47,6 +49,7 @@ export const FileSystemPane = () => {
     const fileTypeMap = (type: string): string => {
         const map: {[key: string]: string} = {
             "file": "=FILE======>",
+            "redirect": "=FILE======>",
             "directory": "=DIRECTORY=>"
         };
 
