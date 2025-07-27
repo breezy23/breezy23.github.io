@@ -1,6 +1,14 @@
 import styles from '../../styles/display.module.scss';
 import AICert from '../../../assets/icons/AICert.png'
-
+import {AsciiIcon} from "./AsciiIcon.tsx";
+import react from '../../../assets/ascii-icons/react-1.txt?raw';
+import javascript from '../../../assets/ascii-icons/JavaScript.txt?raw';
+import typescript from '../../../assets/ascii-icons/TypeScript.txt?raw';
+import python from '../../../assets/ascii-icons/python.txt?raw';
+import java from '../../../assets/ascii-icons/Java.txt?raw';
+import lua from '../../../assets/ascii-icons/lua.txt?raw';
+import c from '../../../assets/ascii-icons/c.txt?raw';
+import cpp from '../../../assets/ascii-icons/cpp.txt?raw';
 export const About = () => {
     return (
         <div>
@@ -42,6 +50,16 @@ export const About = () => {
                             src={AICert}
                         />
                     </a>
+                </div>
+                <div className={styles.image_container}>
+                    <AsciiIcon asciiText={react} />
+                    <AsciiIcon asciiText={javascript} />
+                    <AsciiIcon asciiText={typescript} />
+                    <AsciiIcon asciiText={python} />
+                    <AsciiIcon asciiText={java} />
+                    <AsciiIcon asciiText={lua} />
+                    <AsciiIcon asciiText={c} />
+                    <AsciiIcon asciiText={cpp} />
                 </div>
             </div>
         </div>
