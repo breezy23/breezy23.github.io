@@ -1,6 +1,7 @@
 import styles from '../../styles/display.module.scss'
 import { ReactIcon } from './ReactIcon.tsx';
-import { ViteIcon } from './ViteIcon.tsx'
+import { AsciiIcon } from './AsciiIcon.tsx'
+import vite from "../../../assets/ascii-icons/vite.txt?raw"
 
 export const ReadMe = () => {
     return (
@@ -16,7 +17,7 @@ export const ReadMe = () => {
                 Made with:
                 <div className={styles.image_container}>
                     <ReactIcon />
-                    <ViteIcon />
+                    <AsciiIcon asciiText={vite} />
                 </div>
             </div>
             <br/>
