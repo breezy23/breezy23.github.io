@@ -4,6 +4,7 @@
   flex: 0 0 25%;
   height: 100%;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .fileselector_title {
@@ -13,7 +14,8 @@
   text-overflow: ellipsis;
   width: 100%;
 
-  &.text {
+  .text {
+    display: block;
     overflow: hidden;
     padding-left: 0.25rem;
     text-overflow: ellipsis;
@@ -32,7 +34,7 @@
     border-left: dashed black 2px;
   }
 
-  &.text {
+  .text {
     padding-left: .25rem;
     padding-right: .25rem;
   }

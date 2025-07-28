@@ -49,6 +49,11 @@
         "title": "../",
         "path": "~/",
         "type": "directory"
+      },
+      {
+        "title": "breezy23.github.io",
+        "path": "~/Projects/breezy23.github.io",
+        "type": "file"
       }
     ]
   }
