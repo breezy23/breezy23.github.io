@@ -1,0 +1,60 @@
+[
+  {
+    "path": "~/",
+    "files": [
+      {
+        "title": "Projects",
+        "path": "~/Projects/",
+        "type": "directory"
+      },
+      {
+        "title": "About",
+        "path": "~/about.txt",
+        "type": "file"
+      },
+      {
+        "title": "Resume",
+        "path": "~/Resume.pdf",
+        "type": "redirect",
+        "link": "/documents/Resume.pdf"
+      },
+      {
+        "title": "GitHub",
+        "path": "~/GitHub",
+        "type": "redirect",
+        "link": "https://github.com/breezy23"
+      },
+      {
+        "title": "LinkedIn",
+        "path": "~/LinkedIn",
+        "type": "redirect",
+        "link": "https://www.linkedin.com/in/ezbz/"
+      },
+      {
+        "title": "Contact",
+        "path": "~/Contact.md",
+        "type": "file"
+      },
+      {
+        "title": "README",
+        "path": "~/README.txt",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "path": "~/Projects/",
+    "files": [
+      {
+        "title": "../",
+        "path": "~/",
+        "type": "directory"
+      },
+      {
+        "title": "breezy23.github.io",
+        "path": "~/Projects/breezy23.github.io",
+        "type": "file"
+      }
+    ]
+  }
+]
