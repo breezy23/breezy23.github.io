@@ -1,7 +1,7 @@
 import styles from '../styles/display.module.scss';
 import {ReadMe} from "./display/Readme.tsx";
 import { useContext} from "react";
-import {AppContext} from "../AppContext.tsx";
+import {AppContext} from "../TerminalContext.tsx";
 import {About} from "./display/About.tsx";
 import {Contact} from "./display/Contact.tsx";
 import {Webpage} from "./display/Webpage.tsx";

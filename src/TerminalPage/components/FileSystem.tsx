@@ -1,7 +1,7 @@
 import styles from '../styles/filesystem.module.scss'
 import data from '../data/directories.json'
 import {useContext, useEffect, useState} from "react";
-import {AppContext} from "../AppContext.tsx";
+import {AppContext} from "../TerminalContext.tsx";
 
 export const FileSystemPane = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -10,14 +10,14 @@ export const FileSystemPane = () => {
     const selectedDirectory = data.find(dir => dir.path === currentDirectory);
     const files = selectedDirectory?.files || [];
 
-    const setSelection = () => {
-        const selectedFile = files[selectedIndex]
+    const setSelection = (index: number) => {
+        const selectedFile = files[index];
 
-        setFilePath(files[selectedIndex].path);
+        setFilePath(selectedFile.path);
 
-        if (selectedFile.type === 'file') {
+        if (selectedFile.type === "file") {
             setCurrentDocument(selectedFile.title);
-        } else if (selectedFile.type == 'directory') {
+        } else if (selectedFile.type === "directory") {
             setSelectedIndex(0);
 
             if (selectedFile.title !== "../") {
@@ -25,10 +25,11 @@ export const FileSystemPane = () => {
             } else {
                 setCurrentDirectory(selectedFile.path);
             }
-        } else if (selectedFile.type === 'redirect') {
-            window.open(selectedFile.link, '_blank');
+        } else if (selectedFile.type === "redirect") {
+            window.open(selectedFile.link, "_blank");
         }
-    }
+    };
+
     const changeSelection = (key: string) => {
         switch (key) {
             case 'ArrowUp':
@@ -40,11 +41,12 @@ export const FileSystemPane = () => {
 
                 break;
             case 'Enter':
-                setSelection();
+                setSelection(selectedIndex);
 
                 break;
         }
     };
+
 
     const fileTypeMap = (type: string): string => {
         const map: {[key: string]: string} = {
@@ -56,6 +58,11 @@ export const FileSystemPane = () => {
         return map[type];
     };
 
+    const handleFileClick = (index: number) => {
+        setSelectedIndex(index);
+        setSelection(index);
+    }
+
     useEffect(() => {
         const handleKeyPress = (event: KeyboardEvent) => {
             changeSelection(event.code)
@@ -66,7 +73,7 @@ export const FileSystemPane = () => {
         return () => {
             window.removeEventListener('keydown', handleKeyPress)
         }
-    }, [files, selectedIndex])
+    })
 
     return (
         <div className={styles.filesystem}>
@@ -77,6 +84,7 @@ export const FileSystemPane = () => {
                         <div
                             className={`${styles.text} ${isSelected ? styles.selected : ''}`}
                             key={file.title}
+                            onClick={() => handleFileClick(index)}
                         >
                             {file.title}
                         </div>
@@ -89,7 +97,9 @@ export const FileSystemPane = () => {
 
                     return (
                         <div
-                            className={`${styles.text} ${isSelected ? styles.selected : ''}`} key={`${file.title}-type`}>
+                            className={`${styles.text} ${isSelected ? styles.selected : ''}`} key={`${file.title}-type`}
+                            onClick={() => handleFileClick(index)}
+                        >
                             {fileTypeMap(file.type) }
                         </div>
                     );

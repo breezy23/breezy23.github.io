@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import type {ReactNode} from 'react';
-import {AppContext} from './AppContext';
+import {AppContext} from './TerminalContext';
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
     const [filePath, setFilePath] = useState('~/README.txt');
