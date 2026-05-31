@@ -1,7 +1,7 @@
 import styles from '../styles/filesystem.module.scss'
 import data from '../data/directories.json'
 import {useContext, useEffect, useState} from "react";
-import {AppContext} from "../AppContext.tsx";
+import {AppContext} from "../TerminalContext.tsx";
 
 export const FileSystemPane = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);

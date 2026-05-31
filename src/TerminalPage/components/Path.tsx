@@ -1,7 +1,7 @@
 import styles from '../styles/path.module.scss';
 import {Time} from "./Time.tsx";
 import {useContext} from "react";
-import {AppContext} from "../AppContext.tsx";
+import {AppContext} from "../TerminalContext.tsx";
 export const Path = () => {
     const { filePath } = useContext(AppContext);
 
