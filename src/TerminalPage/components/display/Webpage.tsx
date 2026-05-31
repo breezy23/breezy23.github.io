@@ -10,9 +10,8 @@ export const Webpage = () => {
                 that it can easily grow or change if I need it to.
             </div>
             <div>
-                I decided to model the UI after a vintage terminal — not just because I enjoy the retro aesthetic, but
-                also because I’m fascinated by older technology because of the constraints of that era that often
-                required a great deal of creativity to overcome.
+                I decided to build this site in the style of a retro terminal because I enjoy the aesthetic of older technology, but I also wanted to experiment 
+                building a custom UI, and work on making it very interactive.
             </div>
             <div><a
                 href={'https://github.com/breezy23/breezy23.github.io'}
