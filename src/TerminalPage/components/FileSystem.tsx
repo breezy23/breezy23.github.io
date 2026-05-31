@@ -29,6 +29,7 @@ export const FileSystemPane = () => {
             window.open(selectedFile.link, '_blank');
         }
     }
+
     const changeSelection = (key: string) => {
         switch (key) {
             case 'ArrowUp':
@@ -45,6 +46,7 @@ export const FileSystemPane = () => {
                 break;
         }
     };
+
 
     const fileTypeMap = (type: string): string => {
         const map: {[key: string]: string} = {
@@ -66,7 +68,7 @@ export const FileSystemPane = () => {
         return () => {
             window.removeEventListener('keydown', handleKeyPress)
         }
-    }, [files, selectedIndex])
+    })
 
     return (
         <div className={styles.filesystem}>
@@ -89,7 +91,8 @@ export const FileSystemPane = () => {
 
                     return (
                         <div
-                            className={`${styles.text} ${isSelected ? styles.selected : ''}`} key={`${file.title}-type`}>
+                            className={`${styles.text} ${isSelected ? styles.selected : ''}`} key={`${file.title}-type`}
+                        >
                             {fileTypeMap(file.type) }
                         </div>
                     );

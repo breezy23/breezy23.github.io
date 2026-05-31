@@ -14,7 +14,7 @@ export const ReactIcon = () => {
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [currentFrame]);
+    });
 
     return (
         <div className={styles.icon_wrapper}>
